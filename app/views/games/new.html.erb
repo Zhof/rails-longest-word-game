@@ -1,0 +1,26 @@
+<br>
+<h3 class="text-center">New game</h3>
+<br>
+
+<% @new %>
+<div class="container">
+  <div class="row">
+    <% @letters.each do |letter| %>
+    <div class="col-lg bg-primary text-white m-4 text-center">
+      <%= letter %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<br>
+
+<div class="container">
+  <p>What is the longest word you can find? Let's begin!</p>
+  <form action="/score">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <input type="text" class="form-control" name="word">
+    <input type="hidden" name="start" value="<%= Time.now.to_i %>">
+    <input type="hidden" name="letters" value="<%= @letters.join(" ") %>">
+    <input type="submit" class="btn btn-primary" value="Play">
+  </form>
+</div>

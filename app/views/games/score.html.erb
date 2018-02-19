@@ -1,0 +1,7 @@
+<% @score %>
+<p>Your letters: <%= @result[:letters] %></p>
+<p>Your word: <%= @attempt %></p>
+
+<p><%= @result[:message] %>. You scored <%= @result[:score] %> points with a time of <%= @result[:time] %>.</p>
+
+<a href="/new" class="btn btn-danger">Play again?</a>
